@@ -2,9 +2,7 @@ from docx import Document
 from PyPDF2 import PdfReader
 """
 todo list
-- create a user input space for straight inplaces
 - create another switch case for the profession being applied for 
-- create a point system based of criteria checked
 - Create a UI when possible 
 """
 '''
@@ -15,6 +13,8 @@ done-list
 - create a set of key words for each profession that is being applied for
 - grading system for CVs
 - make a switch case for if its A doxc or a pdf
+- create a user input space for straight inplaces
+- create a point system based of criteria checked
 '''
 
 
@@ -97,21 +97,37 @@ def grader(count, keywords):
         else:
             print('under consideration')
 
-    
+# AI generated code to help with manual checking criteria against keywords
+def manual_check(job_title):
+    # Map job titles to their corresponding keywords
+    job_keywords_map = {
+        'software developer': profession_keywords['software_dev_Keywords'],
+        'data scientist': profession_keywords['data_science_keywords'],
+        'customer service': profession_keywords['customer_service_keywords'],
+        'cyber security': profession_keywords['cyber_security_keywords']
+    }
 
+    # Check if the job title exists in the map
+    if job_title in job_keywords_map:
+        # Get the corresponding keywords for the job title
+        keywords = job_keywords_map[job_title]
+        print(f"Keywords for {job_title}: {keywords}")
 
-# Test parameters
-file_path = r'C:\Users\somto\Desktop\cv_sorter\cvs\Resume.pdf'
-supported_extensions = ['.pdf', '.docx', '.txt', '.doc', '.odt']
-keyword = ['python', 'tensorflow', 'c++', 'javascript', 'html', 'css', 'sql', 'ruby', 'php', 'machine learning']
+        # Ask the user to input their skills
+        user_skills = input("Enter your skills (comma-separated): ").lower().split(',')
 
-if __name__ == "__main__":
-    file_type = get_file_type(file_path, supported_extensions)
-    content = read_cv(file_path)
-    if content:
-        count, matched_keywords = cv_checker(content, keyword)
-        grader(count, keyword)  
-    
+        # Check if the user's skills match the keywords
+        matched_skills = [skill.strip() for skill in user_skills if skill.strip() in keywords]
+        print(f"Matched skills: {matched_skills}")
+
+        # Provide feedback
+        if matched_skills:
+            print(f"You have {len(matched_skills)} matching skills for the {job_title} role.")
+        else:
+            print(f"No matching skills found for the {job_title} role.")
+    else:
+        print("Job title not recognized. Please try again.")
+
 # Keywords for different professions
 profession_keywords = {
 'software_dev_Keywords' : ['python', 'java', 
@@ -127,5 +143,44 @@ profession_keywords = {
 'customer_service_keywords' : ['customer service', 
                              'communication', 
                              'problem solving', 
-                             'teamwork', 'adaptability']}
+                             'teamwork', 'adaptability'],
 
+'cyber_security_keywords' : ['network security',
+                             'firewall', 
+                             'encryption', 
+                             'penetration testing', 
+                             'incident response', 'linux'],
+
+'standard_keywords' : ['communication',
+                     'teamwork', 
+                     'problem solving', 
+                     'adaptability', 
+                     'leadership', 
+                     'time management', 
+                     'critical thinking', 
+                     'creativity', 
+                     'attention to detail', 
+                     'interpersonal skills']
+}
+
+# Test parameters
+file_path = r'C:\Users\somto\Desktop\cv_sorter\cvs'
+supported_extensions = ['.pdf', '.docx', '.txt', '.doc', '.odt']
+job_title = ['software developer', 'data scientist', 'customer service', 'cyber security']
+
+if __name__ == "__main__":
+    moder = input("Enter the mode you want for application, manual or automatic: ")
+    
+    # if the user wants to use the pipeline
+    if moder == 'automatic':
+        file_type = get_file_type(file_path, supported_extensions)
+        content = read_cv(file_path)
+        if content:
+            count, matched_keywords = cv_checker(content, keyword)
+            grader(count, keyword) 
+    
+    elif moder == 'manual':
+        job_title = input("What profession are you applying for? ").lower()
+        manual_check(job_title)
+    else:
+        print('not ready yet')
