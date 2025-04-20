@@ -17,7 +17,7 @@ done-list
 - create a point system based of criteria checked
 '''
 
-# AI generated code to read a document file (docx or pdf) and return its content.
+# AI assisted code to read a document file (docx or pdf) and return its content.
 def get_file_type(file_path, supported_extensions):
     extension_map = {
         '.pdf': 'PDF',
@@ -129,7 +129,7 @@ def grader(count, role_details):
     print(f"Related Roles: {', '.join(role_details['related_roles'])}")
     print(f"Potential Needs: {', '.join(role_details['potential_needs'])}")
 
-# AI generated code to help with manual checking criteria against keywords
+# AI assisted code to help with manual checking criteria against keywords
 def manual_check(job_title):
     # Map job titles to their corresponding keywords
     job_keywords_map = {
