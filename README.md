@@ -1,131 +1,115 @@
-Here's a detailed `README.md` for your project that describes its functionality, usage, requirements, and potential applications:
-
----
-
+```markdown
 # CV Role Recommender & Grader
 
-This Python script analyzes CVs (in PDF, DOCX, or TXT format) and determines the most suitable job role for the applicant based on keyword matching. It also grades the CV by checking for the presence of essential skills and gives additional feedback, such as required qualifications and experience levels.
+Python script to analyse CVS (PDF, DOCX, TXT) for suitable job roles via keyword matching. It grades CVS based on essential skills and provides feedback on qualifications and experience.
 
 ---
 
-## 🔍 Features
+## Features
 
-- **Automatic Role Detection**: Determines the best-fit job role from predefined categories.
-- **Keyword Matching & Grading**: Checks how well the CV aligns with role-specific keywords.
-- **Manual Skill Check**: Allows users to manually input their skills for a quick match against role requirements.
-- **Support for Multiple File Types**: Reads `.pdf`, `.docx`, and `.txt` files.
-- **Extensible Role Profiles**: Profession keyword lists are easily extendable via the `profession_keywords` dictionary.
+- **Automatic Role Detection**: Identifies the best-fit role from predefined categories.
+- **Keyword Matching & Grading**: Assesses CV alignment with role-specific keywords.
+- **Manual Skill Check**: Allows manual skill input for quick role matching.
+- **Multi-Format Support**: Reads `.pdf`, `.docx`, `.txt` files.
+- **Extensible Profiles**: Easily add roles via `profession_keywords`.
 
 ---
 
-## 📂 Supported Professions
+## Supported Professions
 
-Currently includes keyword profiles for:
+Includes profiles for:
 
 - Software Developer
 - Data Scientist
 - Customer Service
 - Cyber Security
 
-Each profile includes:
-- Role-specific keywords
-- Experience levels
-- Related roles
-- Additional requirements
+Each profile contains keywords, experience levels, related roles, and requirements.
 
 ---
 
-## 💡 Potential Applications
+## Potential Applications
 
-- **Recruitment Software**
-- **Job Matching Platforms**
-- **Career Counseling Tools**
-- **Applicant Tracking Systems (ATS) Enhancement**
-- **Self-assessment Tool for Job Seekers**
+- Recruitment software integration
+- Job matching platforms
+- Career counselling tools
+- ATS enhancement
+- Self-assessment for job seekers
 
 ---
 
-## 🛠️ Requirements
+## Requirements
 
-Install required Python libraries:
+Install:
 
 ```bash
-pip install python-docx PyPDF2
+pip install python-docx Pypdf2
 ```
 
 ---
 
-## 🚀 How to Use
+## How to Use
 
-1. **Prepare the Script**  
-   Place your CV file in the specified path or modify the `file_path` variable accordingly.
-
-2. **Run the Script**
-
-```bash
-python main.py
-```
-
-3. **Choose a Mode**
-   - `manual`: You input your job title and skills.
-   - `automatic`: The program reads your CV and tries to find the best role based on keyword matching.
+1. **Prepare**: Place CV in specified path or update `file_path`.
+2. **Run**: `python main.py`
+3. **Choose Mode**:
+   - `manual`: Input job title and skills.
+   - `automatic`: Program reads CV for best role match.
 
 ---
 
-## 🧪 Example Interaction
+## Example Interaction
 
 ### Manual Mode:
 
 ```bash
-Enter the mode you want for application, manual or automatic: manual
-What profession are you applying for? data scientist
-Enter your skills (comma-separated): python, pandas, machine learning, sql
+Enter mode (manual/automatic): manual
+Profession: data scientist
+Your skills (comma-separated)? Python, pandas, machine learning, SQL
 Matched skills: ['python', 'machine learning', 'sql']
-You have 3 matching skills for the data scientist role.
+3 matching skills for a data scientist.
 ```
 
 ### Automatic Mode:
 
 ```bash
-Enter the mode you want for application, manual or automatic: automatic
-Verified it is a Docx file
-Reading the file...
-Role: Software Developer, Matches: 10
-Role: Data Scientist, Matches: 12
-Role: Customer Service, Matches: 3
-Role: Cyber Security, Matches: 2
-The most suitable role for this CV is: Data Scientist with 12 matches.
+Enter mode (manual/automatic): automatic
+Verified Docx file
+Reading...
+Software Developer: 10 matches
+Data Scientist: 12 matches
+Customer Service: 3 matches
+Cyber Security: 2 matches
+Best role: Data Scientist (12 matches)
 Grade: Passed
 
-Additional Feedback:
-Experience Levels: entry-level (0-2 years), junior (2-4 years), ...
-Related Roles: Data Scientist, Data Analyst, ...
-Potential Needs: Bachelor's or Master's degree in a quantitative field, ...
+Feedback:
+Experience: entry-level (0-2 years), junior (2-4 years), ...
+Related: Data Scientist, Data Analyst, ...
+Needs: Bachelor's/Master's in a quantitative field, ...
 ```
 
 ---
 
-## 📌 Notes
+## Notes
 
-- The script is currently configured for local testing and development.
-- You can extend `profession_keywords` to support additional roles and industries.
-- A UI is planned for future development.
+- Configured for local testing/development.
+- Extendable `profession_keywords` for more roles.
+- UI planned for the future.
 
 ---
 
-## 📄 File Structure
+## File Structure
 
 ```
-main.py              # Core script for CV reading and analysis
-README.md            # Project documentation
+main.py     # Core script
+README.md   # Documentation
 ```
 
 ---
 
-## 📬 Contributions
+## Contributions
 
-Feel free to fork the repo, suggest new roles, or submit pull requests to improve the grading system or add a UI.
+Fork, suggest roles, or submit pull requests for improvements (grading, UI).
 
 ---
-
-Would you like a version of this README file written directly into your project directory?
