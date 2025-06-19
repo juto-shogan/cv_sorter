@@ -1,4 +1,3 @@
-```markdown
 # CV Role Recommender & Grader
 
 Python script to analyse CVS (PDF, DOCX, TXT) for suitable job roles via keyword matching. It grades CVS based on essential skills and provides feedback on qualifications and experience.
