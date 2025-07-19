@@ -1,8 +1,7 @@
 from docx import Document
 from PyPDF2 import PdfReader
 """
-todo list
-- Create a UI when possible 
+todo list 
 """
 '''
 done-list 
@@ -15,6 +14,7 @@ done-list
 - make a switch case for if its A doxc or a pdf
 - create a user input space for straight inplaces
 - create a point system based of criteria checked
+- Create a UI when possible
 '''
 
 # AI assisted code to read a document file (docx or pdf) and return its content.
